@@ -254,8 +254,9 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       // Send email using EmailJS
+      emailjs;
       emailjs
-        .send("your_service_id", "your_template_id", templateParams)
+        .send("service_nqd1ivp", "template_r4ppris", templateParams)
         .then(
           function (response) {
             console.log("SUCCESS!", response.status, response.text);
