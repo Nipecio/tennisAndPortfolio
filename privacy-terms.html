@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy & Terms of Service - Anay</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="aname.png" />
+    <style>
+      /* Additional Styles for Legal Pages */
+      .legal-container {
+        max-width: 900px;
+        margin: 120px auto 60px;
+        padding: 0 20px;
+      }
+
+      .legal-nav {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 20px;
+      }
+
+      .legal-nav a {
+        color: var(--text);
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .legal-nav a:hover {
+        background-color: rgba(75, 107, 251, 0.1);
+        color: var(--primary);
+      }
+
+      .legal-nav a.active {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .legal-card {
+        background-color: var(--background);
+        border-radius: 12px;
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: var(--card-shadow);
+      }
+
+      .legal-section {
+        margin-bottom: 40px;
+      }
+
+      .legal-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .legal-title {
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+        color: var(--text);
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .legal-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background-color: var(--primary);
+      }
+
+      .legal-date {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        margin-bottom: 30px;
+        display: block;
+      }
+
+      .legal-subtitle {
+        font-size: 1.5rem;
+        margin: 30px 0 20px;
+        color: var(--text);
+      }
+
+      .legal-text {
+        margin-bottom: 20px;
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+
+      .legal-list {
+        margin: 20px 0;
+        padding-left: 20px;
+      }
+
+      .legal-list li {
+        margin-bottom: 10px;
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+
+      .legal-content {
+        display: none;
+      }
+
+      .legal-content.active {
+        display: block;
+      }
+
+      .toc {
+        background-color: var(--background-light);
+        padding: 20px 30px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+      }
+
+      .toc-title {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: var(--text);
+      }
+
+      .toc-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .toc-list li {
+        margin-bottom: 12px;
+      }
+
+      .toc-list a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+      }
+
+      .toc-list a:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+      }
+
+      .legal-contact {
+        background-color: rgba(75, 107, 251, 0.1);
+        padding: 25px;
+        border-radius: 8px;
+        margin-top: 40px;
+      }
+
+      .legal-contact h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: var(--text);
+      }
+
+      .legal-contact p {
+        margin-bottom: 10px;
+        color: var(--text-light);
+      }
+
+      .legal-contact a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .legal-contact a:hover {
+        text-decoration: underline;
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 30px;
+        transition: var(--transition);
+      }
+
+      .back-button:hover {
+        transform: translateX(-5px);
+      }
+
+      @media (max-width: 768px) {
+        .legal-card {
+          padding: 30px;
+        }
+
+        .legal-title {
+          font-size: 1.8rem;
+        }
+
+        .legal-subtitle {
+          font-size: 1.3rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .legal-card {
+          padding: 20px;
+        }
+
+        .legal-nav {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .legal-nav a {
+          text-align: center;
+        }
+      }
+      /* Enhanced Header and Navigation - Updated Positioning */
+      header {
+        position: absolute;
+        width: 100%;
+        z-index: 1000;
+        top: 200px;
+        background-color: transparent;
+        box-shadow: none;
+        transition: var(--transition);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        max-width: 1200px;
+        margin: -200px auto;
+      }
+
+      .logo a {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--text);
+        text-decoration: none;
+        transition: var(--transition);
+        letter-spacing: -0.5px;
+      }
+
+      .logo-dot {
+        color: var(--primary);
+      }
+
+      .theme-switch-wrapper {
+        display: flex;
+        align-items: center;
+      }
+
+      .theme-switch {
+        display: inline-block;
+        position: relative;
+        width: 50px;
+        height: 24px;
+        cursor: pointer;
+      }
+
+      .theme-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        z-index: 1;
+      }
+
+      input:checked + .slider {
+        background-color: var(--primary);
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+
+      .slider.round {
+        border-radius: 24px;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
+
+      .sun,
+      .moon {
+        color: white;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="#">Anay<span class="logo-dot">.</span></a>
+        </div>
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round">
+              <svg
+                class="sun"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg
+                class="moon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+              </svg>
+            </div>
+          </label>
+        </div>
+      </nav>
+    </header>
+
+    <div class="legal-container">
+      <a href="index.html" class="back-button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Home
+      </a>
+
+      <div class="legal-nav">
+        <a
+          href="#privacy"
+          class="tab-link active"
+          onclick="showTab('privacy', event)"
+          >Privacy Policy</a
+        >
+        <a href="#terms" class="tab-link" onclick="showTab('terms', event)"
+          >Terms of Service</a
+        >
+      </div>
+
+      <div id="privacy" class="legal-content active">
+        <div class="legal-card">
+          <h1 class="legal-title">Privacy Policy</h1>
+          <span class="legal-date">Last Updated: March 31, 2025</span>
+
+          <div class="toc">
+            <h3 class="toc-title">Table of Contents</h3>
+            <ul class="toc-list">
+              <li><a href="#privacy-1">1. Introduction</a></li>
+              <li><a href="#privacy-2">2. Information We Collect</a></li>
+              <li><a href="#privacy-3">3. How We Use Your Information</a></li>
+              <li>
+                <a href="#privacy-4">4. Information Sharing and Disclosure</a>
+              </li>
+              <li><a href="#privacy-5">5. Data Security</a></li>
+              <li><a href="#privacy-6">6. Your Rights</a></li>
+              <li><a href="#privacy-7">7. Children's Privacy</a></li>
+              <li>
+                <a href="#privacy-8">8. Changes to This Privacy Policy</a>
+              </li>
+              <li><a href="#privacy-9">9. Contact Information</a></li>
+            </ul>
+          </div>
+
+          <div class="legal-section" id="privacy-1">
+            <h2 class="legal-subtitle">1. Introduction</h2>
+            <p class="legal-text">
+              Welcome to Anay's personal website ("the Website"). I respect your
+              privacy and am committed to protecting your personal data. This
+              privacy policy will inform you about how I look after your
+              personal data when you visit the Website and tell you about your
+              privacy rights and how the law protects you.
+            </p>
+            <p class="legal-text">
+              This privacy policy applies to all users of the Website. Please
+              read it carefully to understand my practices regarding your
+              personal data and how I will treat it.
+            </p>
+          </div>
+
+          <div class="legal-section" id="privacy-2">
+            <h2 class="legal-subtitle">2. Information We Collect</h2>
+            <p class="legal-text">
+              I may collect, use, store, and transfer different kinds of
+              personal data about you which I have grouped together as follows:
+            </p>
+            <ul class="legal-list">
+              <li>
+                <strong>Identity Data</strong> includes first name, last name,
+                or similar identifier.
+              </li>
+              <li>
+                <strong>Contact Data</strong> includes email address and
+                telephone numbers.
+              </li>
+              <li>
+                <strong>Technical Data</strong> includes internet protocol (IP)
+                address, browser type and version, time zone setting and
+                location, browser plug-in types and versions, operating system
+                and platform, and other technology on the devices you use to
+                access the Website.
+              </li>
+              <li>
+                <strong>Usage Data</strong> includes information about how you
+                use the Website.
+              </li>
+              <li>
+                <strong>Marketing and Communications Data</strong> includes your
+                preferences in receiving marketing from me and my third parties
+                and your communication preferences.
+              </li>
+            </ul>
+            <p class="legal-text">
+              I do not collect any Special Categories of Personal Data about you
+              (this includes details about your race or ethnicity, religious or
+              philosophical beliefs, sex life, sexual orientation, political
+              opinions, trade union membership, information about your health,
+              and genetic and biometric data). Nor do I collect any information
+              about criminal convictions and offenses.
+            </p>
+          </div>
+
+          <div class="legal-section" id="privacy-3">
+            <h2 class="legal-subtitle">3. How We Use Your Information</h2>
+            <p class="legal-text">
+              I will only use your personal data when the law allows me to. Most
+              commonly, I will use your personal data in the following
+              circumstances:
+            </p>
+            <ul class="legal-list">
+              <li>
+                Where I need to perform the contract I am about to enter into or
+                have entered into with you.
+              </li>
+              <li>
+                Where it is necessary for my legitimate interests (or those of a
+                third party) and your interests and fundamental rights do not
+                override those interests.
+              </li>
+              <li>Where I need to comply with a legal obligation.</li>
+            </ul>
+            <p class="legal-text">
+              I have set out below, in a table format, a description of all the
+              ways I plan to use your personal data, and which of the legal
+              bases I rely on to do so.
+            </p>
+
+            <table class="legal-table">
+              <tr>
+                <th>Purpose/Activity</th>
+                <th>Type of data</th>
+                <th>Lawful basis for processing</th>
+              </tr>
+              <tr>
+                <td>To respond to your inquiries or contact requests</td>
+                <td>Identity, Contact</td>
+                <td>Legitimate Interests</td>
+              </tr>
+              <tr>
+                <td>To deliver relevant website content to you</td>
+                <td>Identity, Contact, Technical, Usage</td>
+                <td>Legitimate Interests</td>
+              </tr>
+              <tr>
+                <td>
+                  To use data analytics to improve my website and user
+                  experience
+                </td>
+                <td>Technical, Usage</td>
+                <td>Legitimate Interests</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="legal-section" id="privacy-4">
+            <h2 class="legal-subtitle">
+              4. Information Sharing and Disclosure
+            </h2>
+            <p class="legal-text">
+              I may share your personal data with the parties set out below for
+              the purposes set out in the table above.
+            </p>
+            <ul class="legal-list">
+              <li>
+                Service providers who provide IT and system administration
+                services.
+              </li>
+              <li>
+                Professional advisers including lawyers, bankers, auditors, and
+                insurers who provide consultancy, banking, legal, insurance, and
+                accounting services.
+              </li>
+              <li>
+                Regulators and other authorities who require reporting of
+                processing activities in certain circumstances.
+              </li>
+            </ul>
+            <p class="legal-text">
+              I require all third parties to respect the security of your
+              personal data and to treat it in accordance with the law. I do not
+              allow my third-party service providers to use your personal data
+              for their own purposes and only permit them to process your
+              personal data for specified purposes and in accordance with my
+              instructions.
+            </p>
+          </div>
+
+          <div class="legal-section" id="privacy-5">
+            <h2 class="legal-subtitle">5. Data Security</h2>
+            <p class="legal-text">
+              I have put in place appropriate security measures to prevent your
+              personal data from being accidentally lost, used, or accessed in
+              an unauthorized way, altered, or disclosed. In addition, I limit
+              access to your personal data to those employees, agents,
+              contractors, and other third parties who have a business need to
+              know. They will only process your personal data on my
+              instructions, and they are subject to a duty of confidentiality.
+            </p>
+            <p class="legal-text">
+              I have put in place procedures to deal with any suspected personal
+              data breach and will notify you and any applicable regulator of a
+              breach where I am legally required to do so.
+            </p>
+          </div>
+
+          <div class="legal-section" id="privacy-6">
+            <h2 class="legal-subtitle">6. Your Rights</h2>
+            <p class="legal-text">
+              Under certain circumstances, you have rights under data protection
+              laws in relation to your personal data. These include the right
+              to:
+            </p>
+            <ul class="legal-list">
+              <li>Request access to your personal data.</li>
+              <li>Request correction of your personal data.</li>
+              <li>Request erasure of your personal data.</li>
+              <li>Object to processing of your personal data.</li>
+              <li>Request restriction of processing your personal data.</li>
+              <li>Request transfer of your personal data.</li>
+              <li>Right to withdraw consent.</li>
+            </ul>
+            <p class="legal-text">
+              If you wish to exercise any of the rights set out above, please
+              contact me using the details provided in section 9.
+            </p>
+          </div>
+
+          <div class="legal-section" id="privacy-7">
+            <h2 class="legal-subtitle">7. Children's Privacy</h2>
+            <p class="legal-text">
+              The Website is not intended for children under 13 years of age. I
+              do not knowingly collect personal information from children under
+              13. If you are under 13, please do not provide any information on
+              this Website.
+            </p>
+          </div>
+
+          <div class="legal-section" id="privacy-8">
+            <h2 class="legal-subtitle">8. Changes to This Privacy Policy</h2>
+            <p class="legal-text">
+              I may update this privacy policy from time to time. When I do, I
+              will revise the "last updated" date at the top of this privacy
+              policy. I encourage you to periodically review this privacy policy
+              to stay informed about how I am protecting your information.
+            </p>
+          </div>
+
+          <div class="legal-section" id="privacy-9">
+            <h2 class="legal-subtitle">9. Contact Information</h2>
+            <p class="legal-text">
+              If you have any questions or concerns about this privacy policy or
+              my handling of your personal data, please contact me at:
+            </p>
+
+            <div class="legal-contact">
+              <h3>Contact Details</h3>
+              <p>Name: Anay</p>
+              <p>
+                Email:
+                <a href="mailto:anaysura@gmail.com">anaysura@gmail.com</a>
+              </p>
+              <p>Location: Austin, Texas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="terms" class="legal-content">
+        <div class="legal-card">
+          <h1 class="legal-title">Terms of Service</h1>
+          <span class="legal-date">Last Updated: March 31, 2025</span>
+
+          <div class="toc">
+            <h3 class="toc-title">Table of Contents</h3>
+            <ul class="toc-list">
+              <li><a href="#terms-1">1. Introduction</a></li>
+              <li><a href="#terms-2">2. Acceptance of Terms</a></li>
+              <li><a href="#terms-3">3. Changes to Terms</a></li>
+              <li><a href="#terms-4">4. Using the Website</a></li>
+              <li><a href="#terms-5">5. Intellectual Property Rights</a></li>
+              <li><a href="#terms-6">6. User Contributions</a></li>
+              <li><a href="#terms-7">7. Links to Third-Party Websites</a></li>
+              <li><a href="#terms-8">8. Disclaimer of Warranties</a></li>
+              <li><a href="#terms-9">9. Limitation of Liability</a></li>
+              <li><a href="#terms-10">10. Indemnification</a></li>
+              <li><a href="#terms-11">11. Governing Law</a></li>
+              <li><a href="#terms-12">12. Termination</a></li>
+              <li><a href="#terms-13">13. Contact Information</a></li>
+            </ul>
+          </div>
+
+          <div class="legal-section" id="terms-1">
+            <h2 class="legal-subtitle">1. Introduction</h2>
+            <p class="legal-text">
+              Welcome to Anay's personal website ("the Website"). The Website is
+              owned and operated by Anay ("I," "me," or "my"). These Terms of
+              Service govern your use of the Website, and by accessing or using
+              the Website, you agree to be bound by these Terms.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-2">
+            <h2 class="legal-subtitle">2. Acceptance of Terms</h2>
+            <p class="legal-text">
+              By accessing or using the Website, you acknowledge that you have
+              read, understood, and agree to be bound by these Terms of Service.
+              If you do not agree to these Terms, you must not access or use the
+              Website.
+            </p>
+            <p class="legal-text">
+              You must be at least 13 years old to use this Website. By using
+              this Website, you represent and warrant that you meet this
+              eligibility requirement.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-3">
+            <h2 class="legal-subtitle">3. Changes to Terms</h2>
+            <p class="legal-text">
+              I reserve the right to modify these Terms of Service at any time.
+              When I do, I will revise the "last updated" date at the top of
+              these Terms. It is your responsibility to check these Terms
+              periodically for changes. Your continued use of the Website
+              following the posting of modified Terms means that you accept and
+              agree to the changes.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-4">
+            <h2 class="legal-subtitle">4. Using the Website</h2>
+            <p class="legal-text">
+              You agree to use the Website only for lawful purposes and in a way
+              that does not infringe the rights of, restrict, or inhibit anyone
+              else's use and enjoyment of the Website. Prohibited behavior
+              includes harassing or causing distress or inconvenience to any
+              person, transmitting obscene or offensive content, or disrupting
+              the normal flow of dialogue within the Website.
+            </p>
+            <p class="legal-text">
+              You are responsible for ensuring that any information you provide
+              on the Website is accurate, current, and complete.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-5">
+            <h2 class="legal-subtitle">5. Intellectual Property Rights</h2>
+            <p class="legal-text">
+              The Website and its entire contents, features, and functionality
+              (including but not limited to all information, software, text,
+              displays, images, video, and audio, and the design, selection, and
+              arrangement thereof) are owned by me, my licensors, or other
+              providers of such material and are protected by United States and
+              international copyright, trademark, patent, trade secret, and
+              other intellectual property or proprietary rights laws.
+            </p>
+            <p class="legal-text">
+              These Terms permit you to use the Website for your personal,
+              non-commercial use only. You must not reproduce, distribute,
+              modify, create derivative works of, publicly display, publicly
+              perform, republish, download, store, or transmit any of the
+              material on my Website.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-6">
+            <h2 class="legal-subtitle">6. User Contributions</h2>
+            <p class="legal-text">
+              The Website may contain message boards, forums, comment sections,
+              or other interactive features that allow you to post, submit,
+              publish, display, or transmit content or materials to me or on the
+              Website.
+            </p>
+            <p class="legal-text">
+              Any content you post to the Website will be considered
+              non-confidential and non-proprietary. By providing any content on
+              the Website, you grant me and my affiliates and service providers,
+              and each of their and my respective licensees, successors, and
+              assigns the right to use, reproduce, modify, perform, display,
+              distribute, and otherwise disclose to third parties any such
+              material.
+            </p>
+            <p class="legal-text">You represent and warrant that:</p>
+            <ul class="legal-list">
+              <li>
+                You own or control all rights in and to the content and have the
+                right to grant the license granted above.
+              </li>
+              <li>
+                All of your content does and will comply with these Terms of
+                Service.
+              </li>
+            </ul>
+            <p class="legal-text">
+              You understand and acknowledge that you are responsible for any
+              content you submit or contribute, and you, not I, have full
+              responsibility for such content, including its legality,
+              reliability, accuracy, and appropriateness.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-7">
+            <h2 class="legal-subtitle">7. Links to Third-Party Websites</h2>
+            <p class="legal-text">
+              The Website may contain links to third-party websites or services
+              that are not owned or controlled by me. I have no control over,
+              and assume no responsibility for, the content, privacy policies,
+              or practices of any third-party websites or services. I do not
+              warrant the offerings of any of these entities/individuals or
+              their websites.
+            </p>
+            <p class="legal-text">
+              You acknowledge and agree that I shall not be responsible or
+              liable, directly or indirectly, for any damage or loss caused or
+              alleged to be caused by or in connection with the use of or
+              reliance on any such content, goods, or services available on or
+              through any such third-party websites or services.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-8">
+            <h2 class="legal-subtitle">8. Disclaimer of Warranties</h2>
+            <p class="legal-text">
+              The Website is provided on an "as is" and "as available" basis,
+              without any warranties of any kind, either express or implied,
+              including but not limited to warranties of merchantability,
+              fitness for a particular purpose, non-infringement, or course of
+              performance.
+            </p>
+            <p class="legal-text">
+              I do not warrant that (a) the Website will function uninterrupted,
+              secure, or available at any particular time or location; (b) any
+              errors or defects will be corrected; (c) the Website is free of
+              viruses or other harmful components; or (d) the results of using
+              the Website will meet your requirements.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-9">
+            <h2 class="legal-subtitle">9. Limitation of Liability</h2>
+            <p class="legal-text">
+              In no event shall I be liable for any indirect, incidental,
+              special, consequential, or punitive damages, including without
+              limitation, loss of profits, data, use, goodwill, or other
+              intangible losses, resulting from (a) your access to or use of or
+              inability to access or use the Website; (b) any conduct or content
+              of any third party on the Website; (c) any content obtained from
+              the Website; and (d) unauthorized access, use, or alteration of
+              your transmissions or content, whether based on warranty,
+              contract, tort (including negligence), or any other legal theory,
+              whether or not I have been informed of the possibility of such
+              damage.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-10">
+            <h2 class="legal-subtitle">10. Indemnification</h2>
+            <p class="legal-text">
+              You agree to defend, indemnify, and hold harmless me and my
+              licensees and licensors, and their employees, contractors, agents,
+              officers, and directors, from and against any and all claims,
+              damages, obligations, losses, liabilities, costs or debt, and
+              expenses (including but not limited to attorney's fees) arising
+              from: (a) your use of and access to the Website; (b) your
+              violation of any term of these Terms; (c) your violation of any
+              third-party right, including without limitation any copyright,
+              property, or privacy right; or (d) any claim that your content
+              caused damage to a third party. This defense and indemnification
+              obligation will survive these Terms and your use of the Website.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-11">
+            <h2 class="legal-subtitle">11. Governing Law</h2>
+            <p class="legal-text">
+              These Terms shall be governed and construed in accordance with the
+              laws of the State of Texas, United States, without regard to its
+              conflict of law provisions.
+            </p>
+            <p class="legal-text">
+              My failure to enforce any right or provision of these Terms will
+              not be considered a waiver of those rights. If any provision of
+              these Terms is held to be invalid or unenforceable by a court, the
+              remaining provisions of these Terms will remain in effect.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-12">
+            <h2 class="legal-subtitle">12. Termination</h2>
+            <p class="legal-text">
+              I may terminate or suspend your access to the Website immediately,
+              without prior notice or liability, for any reason whatsoever,
+              including without limitation if you breach these Terms.
+            </p>
+            <p class="legal-text">
+              All provisions of the Terms which by their nature should survive
+              termination shall survive termination, including, without
+              limitation, ownership provisions, warranty disclaimers, indemnity,
+              and limitations of liability.
+            </p>
+          </div>
+
+          <div class="legal-section" id="terms-13">
+            <h2 class="legal-subtitle">13. Contact Information</h2>
+            <p class="legal-text">
+              If you have any questions about these Terms, please contact me at:
+            </p>
+
+            <div class="legal-contact">
+              <h3>Contact Details</h3>
+              <p>Name: Anay</p>
+              <p>
+                Email:
+                <a href="mailto:anaysura@gmail.com">anaysura@gmail.com</a>
+              </p>
+              <p>Location: Austin, Texas</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-primary">
+          <div class="footer-logo">
+            <a href="index.html">Anay<span class="logo-dot">.</span></a>
+            <p>
+              Creating exceptional digital experiences through thoughtful web
+              development and design.
+            </p>
+          </div>
+          <div class="footer-nav">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#projects">Projects</a></li>
+              <li><a href="index.html#tennis">Tennis</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <h4>Connect</h4>
+            <div class="footer-social-icons">
+              <a href="#" aria-label="GitHub">
+                <div class="social-icon-wrapper">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
+                  </svg>
+                </div>
+              </a>
+              <a href="#" aria-label="LinkedIn">
+                <div class="social-icon-wrapper">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    ></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </div>
+              </a>
+              <a href="#" aria-label="Twitter">
+                <div class="social-icon-wrapper">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                    ></path>
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <ul>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  ></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <a href="mailto:anaysura@gmail.com">anaysura@gmail.com</a>
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                  ></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Austin, Texas
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-secondary">
+          <p>&copy; 2025 Anay. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="privacy-terms.html#privacy" class="active"
+              >Privacy Policy</a
+            >
+            <span class="footer-dot">•</span>
+            <a href="privacy-terms.html#terms">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Tab switching functionality
+      function showTab(tabId, event) {
+        // Update active tab content
+        const tabContents = document.querySelectorAll(".legal-content");
+        tabContents.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        document.getElementById(tabId).classList.add("active");
+
+        // Update active tab link
+        const tabLinks = document.querySelectorAll(".tab-link");
+        tabLinks.forEach((link) => {
+          link.classList.remove("active");
+        });
+        event.target.classList.add("active");
+
+        // Update URL hash
+        window.location.hash = tabId;
+      }
+
+      // Handle URL hash on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Theme switcher function
+        const toggleSwitch = document.getElementById("checkbox");
+        const body = document.body;
+
+        if (toggleSwitch) {
+          // Check for saved theme preference or use system preference
+          const prefersDarkScheme = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          );
+
+          if (
+            localStorage.getItem("theme") === "dark" ||
+            (!localStorage.getItem("theme") && prefersDarkScheme.matches)
+          ) {
+            body.setAttribute("data-theme", "dark");
+            toggleSwitch.checked = true;
+          } else {
+            body.setAttribute("data-theme", "light");
+            toggleSwitch.checked = false;
+          }
+
+          // Define the switch function
+          function switchTheme(e) {
+            if (e.target.checked) {
+              body.setAttribute("data-theme", "dark");
+              localStorage.setItem("theme", "dark");
+            } else {
+              body.setAttribute("data-theme", "light");
+              localStorage.setItem("theme", "light");
+            }
+          }
+
+          // Add event listener
+          toggleSwitch.addEventListener("change", switchTheme);
+        }
+
+        // Check if URL has a hash and activate corresponding tab
+        const hash = window.location.hash.substring(1);
+        if (hash === "terms") {
+          const termsTab = document.querySelector('a[href="#terms"]');
+          if (termsTab) {
+            showTab("terms", { target: termsTab });
+          }
+        }
+
+        // Mobile menu toggle
+      });
+    </script>
+  </body>
+</html>
