@@ -1473,6 +1473,12 @@ input:checked + .slider:before {
   }
 }
 
+@media (max-height: 820px) {
+  .scroll-down {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 3rem;
@@ -1530,6 +1536,10 @@ input:checked + .slider:before {
     height: 120px;
   }
 
+  .scroll-down {
+    display: none;
+  }
+
   .hero-buttons {
     flex-direction: column;
     width: 100%;
@@ -1539,6 +1549,10 @@ input:checked + .slider:before {
   .secondary-button {
     width: 100%;
     text-align: center;
+  }
+
+  .hero-buttons {
+    padding: 0px 0px;
   }
 
   .project-grid {
