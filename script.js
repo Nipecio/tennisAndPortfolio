@@ -1,18 +1,91 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Mobile Navigation
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const navLinks = document.getElementById("navLinks");
+  const docBody = document.body;
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener("click", function () {
+      // Toggle menu button appearance
+      this.classList.toggle("menu-open");
+
+      // Toggle navigation
+      navLinks.classList.toggle("nav-active");
+
+      // Create or remove overlay
+      if (navLinks.classList.contains("nav-active")) {
+        // Create overlay
+        if (!document.querySelector(".nav-overlay")) {
+          const overlay = document.createElement("div");
+          overlay.className = "nav-overlay";
+          docBody.appendChild(overlay);
+
+          // Add active class after a small delay (for animation)
+          setTimeout(() => {
+            overlay.classList.add("overlay-active");
+          }, 10);
+
+          // Close menu when clicking on overlay
+          overlay.addEventListener("click", function () {
+            mobileMenuBtn.classList.remove("menu-open");
+            navLinks.classList.remove("nav-active");
+            this.classList.remove("overlay-active");
+
+            // Remove overlay after transition
+            setTimeout(() => {
+              this.remove();
+            }, 300);
+          });
+        }
+      } else {
+        // Remove overlay
+        const overlay = document.querySelector(".nav-overlay");
+        if (overlay) {
+          overlay.classList.remove("overlay-active");
+
+          // Remove overlay after transition
+          setTimeout(() => {
+            overlay.remove();
+          }, 300);
+        }
+      }
+    });
+
+    // Close menu when clicking on nav links (mobile)
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", function () {
+        if (window.innerWidth <= 768) {
+          mobileMenuBtn.classList.remove("menu-open");
+          navLinks.classList.remove("nav-active");
+
+          // Remove overlay
+          const overlay = document.querySelector(".nav-overlay");
+          if (overlay) {
+            overlay.classList.remove("overlay-active");
+
+            // Remove overlay after transition
+            setTimeout(() => {
+              overlay.remove();
+            }, 300);
+          }
+        }
+      });
+    });
+  }
+
   // Improved Typing Animation
   const typedElement = document.getElementById("typed-text");
-  const phrases = [
-    "Web Developer",
-    "Tennis Player",
-    "Student",
-    "Over Achiever",
-  ];
+  if (!typedElement) return; // Safety check
+
+  const phrases = ["Web Developer", "Tennis Player", "Student"];
   let currentPhrase = 0;
   let currentChar = 0;
   let isDeleting = false;
   let typingSpeed = 100;
 
   function typeEffect() {
+    if (!typedElement) return; // Additional safety check
+
     // Current phrase being typed/deleted
     const fullText = phrases[currentPhrase];
 
@@ -45,12 +118,11 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(typeEffect, typingSpeed);
   }
 
-  // Start the typing animation
-  setTimeout(typeEffect, 1000);
+  // Start the typing animation immediately
+  typeEffect();
 
   // Theme switcher function
   const toggleSwitch = document.getElementById("checkbox");
-  const body = document.body;
 
   if (toggleSwitch) {
     // Check for saved theme preference or use system preference
@@ -60,20 +132,20 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.getItem("theme") === "dark" ||
       (!localStorage.getItem("theme") && prefersDarkScheme.matches)
     ) {
-      body.setAttribute("data-theme", "dark");
+      document.body.setAttribute("data-theme", "dark");
       toggleSwitch.checked = true;
     } else {
-      body.setAttribute("data-theme", "light");
+      document.body.setAttribute("data-theme", "light");
       toggleSwitch.checked = false;
     }
 
     // Define the switch function
     function switchTheme(e) {
       if (e.target.checked) {
-        body.setAttribute("data-theme", "dark");
+        document.body.setAttribute("data-theme", "dark");
         localStorage.setItem("theme", "dark");
       } else {
-        body.setAttribute("data-theme", "light");
+        document.body.setAttribute("data-theme", "light");
         localStorage.setItem("theme", "light");
       }
     }
@@ -81,47 +153,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add event listener
     toggleSwitch.addEventListener("change", switchTheme);
   }
-
-  // Mobile menu toggle
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navContent = document.querySelector(".nav-content");
-
-  if (menuToggle && navContent) {
-    menuToggle.addEventListener("click", function () {
-      navContent.classList.toggle("active");
-
-      // Animate hamburger to X
-      const bars = document.querySelectorAll(".bar");
-      if (navContent.classList.contains("active")) {
-        // Change to X
-        bars[0].style.transform = "translateY(9px) rotate(45deg)";
-        bars[1].style.opacity = "0";
-        bars[2].style.transform = "translateY(-9px) rotate(-45deg)";
-      } else {
-        // Back to hamburger
-        bars[0].style.transform = "none";
-        bars[1].style.opacity = "1";
-        bars[2].style.transform = "none";
-      }
-    });
-  }
-
-  // Close mobile menu when clicking a link
-  const navLinksItems = document.querySelectorAll(".nav-links a");
-  navLinksItems.forEach((link) => {
-    link.addEventListener("click", function () {
-      if (navContent) {
-        navContent.classList.remove("active");
-
-        // Reset hamburger icon
-        const bars = document.querySelectorAll(".bar");
-        bars.forEach((bar) => {
-          bar.style.transform = "none";
-          bar.style.opacity = "1";
-        });
-      }
-    });
-  });
 
   // Smooth scrolling for navigation links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -143,32 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-
-  // Add active class to nav links on scroll
-  function addActiveClassOnScroll() {
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".nav-links a");
-
-    let current = "";
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-
-      if (window.scrollY >= sectionTop - 200) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", addActiveClassOnScroll);
 
   // Animate elements on scroll
   function checkScroll() {
@@ -301,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return emailRegex.test(email);
   }
 
-  // Add this to your script.js
+  // Animate skill bars
   function animateSkills() {
     const skillBars = document.querySelectorAll(".skill-progress");
     const triggerPosition = window.innerHeight * 0.8;
@@ -319,7 +324,8 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", animateSkills);
   // Initial check
   setTimeout(animateSkills, 500);
-  // Add this to your script.js
+
+  // Animate counters for Tennis Stats
   function animateCounters() {
     const stats = document.querySelectorAll(".stat-number");
     const triggerPosition = window.innerHeight * 0.8;
@@ -355,156 +361,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", animateCounters);
   // Initial check
   setTimeout(animateCounters, 500);
-  // Add this to your script.js
-  function parallaxScroll() {
-    const scrollPosition = window.pageYOffset;
 
-    // Parallax for hero section
-    const heroContent = document.querySelector(".hero-text");
-    const heroImage = document.querySelector(".hero-image");
-
-    if (heroContent && heroImage) {
-      heroContent.style.transform = `translateY(${scrollPosition * 0.2}px)`;
-      heroImage.style.transform = `translateY(${scrollPosition * 0.1}px)`;
-    }
-
-    // Parallax for shapes
-    const shapes = document.querySelectorAll(".shape");
-    shapes.forEach((shape, index) => {
-      const speed = 0.05 * (index + 1);
-      shape.style.transform = `translateY(${scrollPosition * speed}px)`;
-    });
-  }
-
-  // Add this event listener
-  window.addEventListener("scroll", parallaxScroll);
-  // Add this to your script.js for a subtle cursor effect
-  // Advanced Custom Cursor
-  function initAdvancedCursor() {
-    // Create cursor elements
-    const cursorDot = document.createElement("div");
-    cursorDot.classList.add("custom-cursor", "cursor-dot");
-
-    const cursorOutline = document.createElement("div");
-    cursorOutline.classList.add("custom-cursor", "cursor-outline");
-
-    // Add to DOM
-    document.body.appendChild(cursorDot);
-    document.body.appendChild(cursorOutline);
-
-    // Variables for cursor position
-    let mouseX = 0;
-    let mouseY = 0;
-    let dotX = 0;
-    let dotY = 0;
-    let outlineX = 0;
-    let outlineY = 0;
-
-    // Track mouse position
-    document.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    // Interactive elements
-    const headings = document.querySelectorAll(
-      "h1, h2, .gradient-text, .typing-wrapper"
-    );
-    const buttons = document.querySelectorAll(
-      "button, .primary-button, .secondary-button, .project-link"
-    );
-    const cards = document.querySelectorAll(".project-card, .achievement");
-    const images = document.querySelectorAll(
-      ".project-image, .profile-placeholder, .about-image"
-    );
-
-    // Add event listeners to headings
-    headings.forEach((heading) => {
-      heading.addEventListener("mouseenter", () => {
-        cursorOutline.classList.add("cursor-expand");
-        cursorOutline.setAttribute("data-cursor-text", "VIEW");
-        cursorOutline.classList.add("cursor-text");
-      });
-
-      heading.addEventListener("mouseleave", () => {
-        cursorOutline.classList.remove("cursor-expand");
-        cursorOutline.removeAttribute("data-cursor-text");
-        cursorOutline.classList.remove("cursor-text");
-      });
-    });
-
-    // Add event listeners to buttons
-    buttons.forEach((button) => {
-      button.addEventListener("mouseenter", () => {
-        cursorOutline.classList.add("cursor-hover");
-      });
-
-      button.addEventListener("mouseleave", () => {
-        cursorOutline.classList.remove("cursor-hover");
-      });
-    });
-
-    // Add event listeners to cards
-    cards.forEach((card) => {
-      card.addEventListener("mouseenter", () => {
-        cursorOutline.classList.add("cursor-project");
-      });
-
-      card.addEventListener("mouseleave", () => {
-        cursorOutline.classList.remove("cursor-project");
-      });
-    });
-
-    // Add event listeners to images
-    images.forEach((image) => {
-      image.addEventListener("mouseenter", () => {
-        cursorOutline.classList.add("cursor-img");
-      });
-
-      image.addEventListener("mouseleave", () => {
-        cursorOutline.classList.remove("cursor-img");
-      });
-    });
-
-    // Animate cursor
-    const animateCursor = () => {
-      // Calculate smooth movement with easing
-      const easing = 0.2;
-
-      dotX += (mouseX - dotX) * easing;
-      dotY += (mouseY - dotY) * easing;
-
-      outlineX += (mouseX - outlineX) * (easing * 0.5);
-      outlineY += (mouseY - outlineY) * (easing * 0.5);
-
-      // Apply positions
-      cursorDot.style.left = `${dotX}px`;
-      cursorDot.style.top = `${dotY}px`;
-
-      cursorOutline.style.left = `${outlineX}px`;
-      cursorOutline.style.top = `${outlineY}px`;
-
-      // Continue animation
-      requestAnimationFrame(animateCursor);
-    };
-
-    // Start animation
-    animateCursor();
-
-    // Hide default cursor
-    document.body.style.cursor = "none";
-
-    // Add cursor-none to all interactive elements
-    const allInteractive = document.querySelectorAll(
-      "a, button, input, textarea, .project-card, .achievement, .nav-links a"
-    );
-    allInteractive.forEach((el) => {
-      el.style.cursor = "none";
-    });
-  }
-
-  // Initialize when DOM is loaded
-  document.addEventListener("DOMContentLoaded", initAdvancedCursor);
   // Projects Section Background Animation
   function initProjectsBackground() {
     const projectsBg = document.getElementById("projectsBg");
@@ -565,8 +422,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(createCodeParticle, 1000);
   }
 
-  // Initialize projects background
-  document.addEventListener("DOMContentLoaded", initProjectsBackground);
   // Contact Section Interactive Background
   function initContactBackground() {
     const contactBg = document.getElementById("connectionNodes");
@@ -705,8 +560,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Initialize contact background
-  document.addEventListener("DOMContentLoaded", initContactBackground);
   // Magnetic elements effect
   function initMagneticElements() {
     const magneticElements = document.querySelectorAll(
@@ -740,8 +593,130 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Initialize magnetic elements
-  document.addEventListener("DOMContentLoaded", initMagneticElements);
+  // Advanced Custom Cursor
+  function initAdvancedCursor() {
+    // Create cursor elements
+    const cursorDot = document.createElement("div");
+    cursorDot.classList.add("custom-cursor", "cursor-dot");
+
+    const cursorOutline = document.createElement("div");
+    cursorOutline.classList.add("custom-cursor", "cursor-outline");
+
+    // Add to DOM
+    document.body.appendChild(cursorDot);
+    document.body.appendChild(cursorOutline);
+
+    // Variables for cursor position
+    let mouseX = 0;
+    let mouseY = 0;
+    let dotX = 0;
+    let dotY = 0;
+    let outlineX = 0;
+    let outlineY = 0;
+
+    // Track mouse position
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Interactive elements
+    const headings = document.querySelectorAll(
+      "h1, h2, .gradient-text, .typing-wrapper"
+    );
+    const buttons = document.querySelectorAll(
+      "button, .primary-button, .secondary-button, .project-link"
+    );
+    const cards = document.querySelectorAll(".project-card, .achievement");
+    const images = document.querySelectorAll(
+      ".project-image, .profile-placeholder, .about-image"
+    );
+
+    // Add event listeners to headings
+    headings.forEach((heading) => {
+      heading.addEventListener("mouseenter", () => {
+        cursorOutline.classList.add("cursor-expand");
+        cursorOutline.setAttribute("data-cursor-text", "");
+        cursorOutline.classList.add("cursor-text");
+      });
+
+      heading.addEventListener("mouseleave", () => {
+        cursorOutline.classList.remove("cursor-expand");
+        cursorOutline.removeAttribute("data-cursor-text");
+        cursorOutline.classList.remove("cursor-text");
+      });
+    });
+
+    // Add event listeners to buttons
+    buttons.forEach((button) => {
+      button.addEventListener("mouseenter", () => {
+        cursorOutline.classList.add("cursor-hover");
+      });
+
+      button.addEventListener("mouseleave", () => {
+        cursorOutline.classList.remove("cursor-hover");
+      });
+    });
+
+    // Add event listeners to cards
+    cards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        cursorOutline.classList.add("cursor-project");
+      });
+
+      card.addEventListener("mouseleave", () => {
+        cursorOutline.classList.remove("cursor-project");
+      });
+    });
+
+    // Add event listeners to images
+    images.forEach((image) => {
+      image.addEventListener("mouseenter", () => {
+        cursorOutline.classList.add("cursor-img");
+      });
+
+      image.addEventListener("mouseleave", () => {
+        cursorOutline.classList.remove("cursor-img");
+      });
+    });
+
+    // Animate cursor
+    const animateCursor = () => {
+      // Calculate smooth movement with easing
+      const easing = 0.2;
+
+      dotX += (mouseX - dotX) * easing;
+      dotY += (mouseY - dotY) * easing;
+
+      outlineX += (mouseX - outlineX) * (easing * 0.5);
+      outlineY += (mouseY - outlineY) * (easing * 0.5);
+
+      // Apply positions
+      cursorDot.style.left = `${dotX}px`;
+      cursorDot.style.top = `${dotY}px`;
+
+      cursorOutline.style.left = `${outlineX}px`;
+      cursorOutline.style.top = `${outlineY}px`;
+
+      // Continue animation
+      requestAnimationFrame(animateCursor);
+    };
+
+    // Start animation
+    animateCursor();
+
+    // Hide default cursor
+    document.body.style.cursor = "none";
+
+    // Add cursor-none to all interactive elements
+    const allInteractive = document.querySelectorAll(
+      "a, button, input, textarea, .project-card, .achievement, .nav-links a"
+    );
+    allInteractive.forEach((el) => {
+      el.style.cursor = "none";
+    });
+  }
+
   // Text Scramble Effect
   class TextScramble {
     constructor(el) {
@@ -823,8 +798,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Initialize scramble text effect
-  document.addEventListener("DOMContentLoaded", initScrambleTexts);
   // Add glitch effect to images
   function initGlitchEffect() {
     const images = document.querySelectorAll(
@@ -836,6 +809,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Initialize glitch effect
-  document.addEventListener("DOMContentLoaded", initGlitchEffect);
+  // Initialize all the effects and animations
+  window.addEventListener("scroll", parallaxScroll);
+  initProjectsBackground();
+  initContactBackground();
+  initMagneticElements();
+  initAdvancedCursor();
+  initScrambleTexts();
+  initGlitchEffect();
 });
