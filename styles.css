@@ -1205,8 +1205,8 @@ input:checked + .slider:before {
 
 /* Enhanced Professional Footer */
 .footer {
-  background-color: #1a1a1a;
-  color: #f5f5f5;
+  background-color: #000000;
+  color: #000000;
   padding: 60px 0 30px;
   transition: var(--transition);
 }
@@ -1227,7 +1227,7 @@ input:checked + .slider:before {
 .footer-logo a {
   font-size: 24px;
   font-weight: 700;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   letter-spacing: -0.5px;
 }
@@ -1243,7 +1243,7 @@ input:checked + .slider:before {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #fff;
+  color: #ffffff;
 }
 
 .footer-nav ul,
@@ -1807,5 +1807,175 @@ input:checked + .slider:before {
   100% {
     transform: scale(1);
     opacity: 0.4;
+  }
+}
+/* Contact Section Interactive Background */
+.contact {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background-light);
+  transition: var(--transition);
+
+  background: var(--background-light);
+}
+
+[data-theme="dark"] .contact {
+  background: linear-gradient(
+    125deg,
+    #000000 0%,
+    #131313 100%,
+    #131313 100%,
+    #000000 50%
+  );
+}
+
+/* Animated circuit board pattern */
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      to right,
+      rgba(var(--primary-rgb), 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(var(--primary-rgb), 0.05) 1px,
+      transparent 1px
+    );
+  background-size: 30px 30px;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+/* Glowing nodes */
+.contact::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      circle at 5% 20%,
+      rgba(var(--primary-rgb), 0.7) 0%,
+      rgba(var(--primary-rgb), 0) 50px
+    ),
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(var(--secondary-rgb), 0.6) 0%,
+      rgba(var(--secondary-rgb), 0) 70px
+    ),
+    radial-gradient(
+      circle at 30% 85%,
+      rgba(var(--primary-rgb), 0.6) 0%,
+      rgba(var(--primary-rgb), 0) 80px
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(var(--secondary-rgb), 0.5) 0%,
+      rgba(var(--secondary-rgb), 0) 60px
+    ),
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(var(--primary-rgb), 0.8) 0%,
+      rgba(var(--primary-rgb), 0) 90px
+    );
+  filter: blur(10px);
+  opacity: 0.6;
+  animation: pulseGlow 10s infinite alternate;
+  z-index: 0;
+}
+
+/* Animated floating particles */
+.contact .particle {
+  position: absolute;
+  background-color: rgba(var(--primary-rgb), 0.7);
+  border-radius: 50%;
+  z-index: 1;
+  animation: particleFloat 30s infinite linear;
+  opacity: 0.3;
+}
+
+.contact .particle:nth-child(1) {
+  width: 6px;
+  height: 6px;
+  top: 10%;
+  left: 20%;
+  animation-duration: 25s;
+  animation-delay: 0s;
+}
+
+.contact .particle:nth-child(2) {
+  width: 8px;
+  height: 8px;
+  top: 30%;
+  left: 70%;
+  animation-duration: 35s;
+  animation-delay: 2s;
+}
+
+.contact .particle:nth-child(3) {
+  width: 5px;
+  height: 5px;
+  top: 70%;
+  left: 30%;
+  animation-duration: 30s;
+  animation-delay: 4s;
+}
+
+.contact .particle:nth-child(4) {
+  width: 7px;
+  height: 7px;
+  top: 50%;
+  left: 85%;
+  animation-duration: 28s;
+  animation-delay: 6s;
+}
+
+.contact .particle:nth-child(5) {
+  width: 5px;
+  height: 5px;
+  top: 80%;
+  left: 50%;
+  animation-duration: 32s;
+  animation-delay: 8s;
+}
+
+/* Particle animations */
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-50px) translateX(30px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(0) translateX(60px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(50px) translateX(30px) rotate(270deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.4;
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.7;
+    filter: blur(15px);
+  }
+  100% {
+    opacity: 0.5;
+    filter: blur(12px);
   }
 }

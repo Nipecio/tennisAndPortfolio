@@ -818,4 +818,55 @@ document.addEventListener("DOMContentLoaded", function () {
   initAdvancedCursor();
   initScrambleTexts();
   initGlitchEffect();
+  // Add these helper functions at the beginning of your script.js file
+  // to handle the RGB conversion needed for the contact background
+
+  // Function to convert a hex color to RGB values as an array
+  function hexToRgb(hex) {
+    // Remove # if present
+    hex = hex.replace(/^#/, "");
+
+    // Parse hex values
+    let r, g, b;
+    if (hex.length === 3) {
+      // For shorthand hex: #ABC
+      r = parseInt(hex.charAt(0) + hex.charAt(0), 16);
+      g = parseInt(hex.charAt(1) + hex.charAt(1), 16);
+      b = parseInt(hex.charAt(2) + hex.charAt(2), 16);
+    } else {
+      // For regular hex: #AABBCC
+      r = parseInt(hex.substring(0, 2), 16);
+      g = parseInt(hex.substring(2, 4), 16);
+      b = parseInt(hex.substring(4, 6), 16);
+    }
+
+    // Return RGB array
+    return [r, g, b];
+  }
+
+  // Add these lines to your document ready function
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get RGB values of primary and secondary colors for CSS variables
+    const primaryHex = getComputedStyle(document.documentElement)
+      .getPropertyValue("--primary")
+      .trim();
+    const secondaryHex = getComputedStyle(document.documentElement)
+      .getPropertyValue("--secondary")
+      .trim();
+
+    const primaryRgb = hexToRgb(primaryHex);
+    const secondaryRgb = hexToRgb(secondaryHex);
+
+    // Set the RGB values as CSS variables
+    document.documentElement.style.setProperty(
+      "--primary-rgb",
+      primaryRgb.join(", ")
+    );
+    document.documentElement.style.setProperty(
+      "--secondary-rgb",
+      secondaryRgb.join(", ")
+    );
+
+    // Rest of your initialization code...
+  });
 });
