@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Anay</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="aname.png" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <a href="index.html">Anay<span class="logo-dot">.</span></a>
+          </div>
+          <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="tennis.html">Tennis</a>
+            <a href="index.html#contact">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="projects">
+      <div class="container">
+        <h1 class="page-title">Projects</h1>
+        <p class="page-description">
+          A showcase of my work, featuring interactive and responsive web
+          applications.
+        </p>
+        <div class="staggered-grid">
+          <!-- Project 1 -->
+          <div class="project-item fade-in">
+            <div class="project-thumbnail">
+              <img src="images/quiz-app.png" alt="School Quiz App" />
+            </div>
+            <div class="project-details">
+              <h3>School Quiz App</h3>
+              <p>
+                An interactive quiz application for students to test their
+                knowledge across various subjects.
+              </p>
+              <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">Demo</a>
+                <a href="#" class="project-link">Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-item fade-in">
+            <div class="project-thumbnail">
+              <img src="images/weather-dashboard.png" alt="Weather Dashboard" />
+            </div>
+            <div class="project-details">
+              <h3>Weather Dashboard</h3>
+              <p>
+                Real-time weather application using API integration to provide
+                forecast data.
+              </p>
+              <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>API</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">Demo</a>
+                <a href="#" class="project-link">Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-item fade-in">
+            <div class="project-thumbnail">
+              <img src="images/portfolio.png" alt="Portfolio Website" />
+            </div>
+            <div class="project-details">
+              <h3>Portfolio Website</h3>
+              <p>
+                Personal portfolio website to showcase my web development skills
+                and projects.
+              </p>
+              <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Responsive</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link">Demo</a>
+                <a href="#" class="project-link">Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-primary">
+          <div class="footer-logo">
+            <a href="index.html">Anay.</a>
+            <p>
+              Young web developer and tennis enthusiast, creating digital
+              solutions with passion and precision.
+            </p>
+          </div>
+          <div class="footer-nav">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html#hero">Home</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="index.html#tennis">Tennis</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-secondary">
+          <div>© 2025 Anay. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Add fade-in animation on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("appear");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
